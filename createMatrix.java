@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class createMatrix {
+ class createMatrix {
 
 
      protected  int[][] keypad(int rows, int cols) {

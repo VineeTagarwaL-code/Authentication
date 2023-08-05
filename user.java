@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class user {
 
@@ -55,4 +54,41 @@ public class user {
         }
         return false;
    }
+
+     protected boolean updatePass(String input , String userName){
+     for(user user : userList ){
+            if (user.userName.equals(userName) ) {
+                user.pass = input;
+                return true;
+            } 
+        }
+        return false;
+   }
+
+
+      public  boolean updateBoth(String inputUserName , String pass , String newUser , String newPin){
+        for(user user : userList ){
+            if (user.userName.equals(inputUserName) && user.pass.equals(pass)) {
+                user.userName = newUser;
+                user.pass = newPin;
+                return true;
+            } 
+        }
+        return false;
+
+    }
+
+    public  boolean deleteUser(String userName) {
+        Iterator<user> iterator = userList.iterator();
+        while (iterator.hasNext()) {
+            user currentUser = iterator.next();
+            if (currentUser.userName.equals(userName)) {
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
